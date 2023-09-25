@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N1 = scanner.nextInt();
+        int N2 = scanner.nextInt();
+        
+        int gcd = calculateGCD(N1, N2);
+        
+        System.out.println(gcd);
+        
+        scanner.close();
+    }
+
+    public static int calculateGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}

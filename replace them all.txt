@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        long n = scanner.nextLong();
+        
+        long result = replaceZeroWithFive(n);
+        
+        System.out.println(result);
+        
+        scanner.close();
+    }
+
+    public static long replaceZeroWithFive(long n) {
+        long result = 0;
+        long multiplier = 1;
+        
+        while (n > 0) {
+            long digit = n % 10;
+            if (digit == 0) {
+                digit = 5; // Replace '0' with '5'
+            }
+            result += digit * multiplier;
+            multiplier *= 10;
+            n /= 10;
+        }
+        
+        return result;
+    }
+}

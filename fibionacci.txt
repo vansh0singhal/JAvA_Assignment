@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        
+        int result = findNthFibonacci(N);
+        
+        System.out.println(result);
+        
+        scanner.close();
+    }
+
+    public static int findNthFibonacci(int N) {
+        if (N <= 1) {
+            return N; // Return N for 0 and 1 since they are the first two Fibonacci numbers
+        }
+        
+        int prev = 0;
+        int current = 1;
+        
+        for (int i = 2; i <= N; i++) {
+            int next = prev + current;
+            prev = current;
+            current = next;
+        }
+        
+        return current;
+    }
+}

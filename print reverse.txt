@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        
+        int reversed = reverseNumber(N);
+        
+        System.out.println(reversed);
+        
+        scanner.close();
+    }
+
+    public static int reverseNumber(int N) {
+        int reversed = 0;
+        
+        while (N != 0) {
+            int lastDigit = N % 10; // Get the last digit of N
+            reversed = reversed * 10 + lastDigit; // Build the reversed number
+            N /= 10; // Remove the last digit from N
+        }
+        
+        return reversed;
+    }
+}

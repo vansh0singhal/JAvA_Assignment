@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) {
+        int number = 5433231;
+        int digitToFind = 3;
+        
+        int count = countDigitOccurrences(number, digitToFind);
+        
+        System.out.println(count);
+    }
+
+    public static int countDigitOccurrences(int number, int digit) {
+        int count = 0;
+        
+        while (number > 0) {
+            int lastDigit = number % 10; // Get the last digit of the number
+            if (lastDigit == digit) {
+                count++; // Increment count if the last digit matches the target digit
+            }
+            number /= 10; // Remove the last digit
+        }
+        
+        return count;
+    }
+}
